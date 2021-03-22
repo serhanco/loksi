@@ -18,14 +18,14 @@
         $api_result = json_decode($json, true);
         // Request başarılı dönüş yapmışsa
         if (isset($api_result['status']) && ($api_result['status'] === "success")) {
-            //echo ' - Status: ' . $api_result['status'] . ', ' . 'Country: ' . $api_result['country'];
-            $_SESSION['user_country'] = $api_result['country'];
-            $user_country = $_SESSION['user_country'];
+            echo ' - Status: ' . $api_result['status'] . ', ' . 'Country: ' . $api_result['country'];
+            $_SESSION['userCountry'] = $api_result['country'];
+            $userCountry = $_SESSION['userCountry'];
             
-            ofisTelefonuGetir($user_country);
+            ofisTelefonuGetir($userCountry);
 
-            if (in_array(ucwords($user_country), $ofisUlkeleri)) {
-                //echo " - Listede var: " . $user_country;
+            if (in_array(ucwords($userCountry), $officePositiveCountries)) {
+                //echo " - Listede var: " . $userCountry;
                 $_SESSION['ofis_ulkesi'] = true;
                 //echo " - Ofis listesi: " . $_SESSION['ofis_ulkesi'];
             }
